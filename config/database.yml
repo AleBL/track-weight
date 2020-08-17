@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: track_weight_development
+
+test:
+  <<: *default
+  database: track_weight_test
+
+production:
+  <<: *default
+  database: track_weight_production
+  username: track_weight
+  password: <%= ENV['TRACK_WEIGHT_DATABASE_PASSWORD'] %>
