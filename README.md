@@ -1,3 +1,5 @@
+[![Build Status](https://circleci.com/gh/AleBL/track-weight.svg?style=svg)](https://app.circleci.com/pipelines/github/AleBL/track-weight)
+
 # README
 
 This README would normally document whatever steps are necessary to get the
