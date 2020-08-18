@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :weight do
-    value { 1 }
-    unity { 1 }
-    registration_date { "2020-08-17" }
-    user { nil }
+    value             { FFaker::Random.rand(40..100) }
+    unity             { FFaker::Random.rand(2)       }
+    registration_date { Date.current                 }
+    user
   end
 end
