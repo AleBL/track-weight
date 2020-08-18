@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :meal do
-    type { 1 }
-    eating_time { "2020-08-17 18:37:34" }
-    description { "MyText" }
-    diet { nil }
+    type        { FFaker::Random.rand(4)      }
+    eating_time { FFaker::Time.datetime       }
+    description { FFaker::Lorem.sentences(20) }
+    diet
   end
 end
