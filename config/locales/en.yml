@@ -30,4 +30,15 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  app_name: 'Track Weight'
+  logged: 'Logged in as %{name}'
+  diet:
+    new: 'New Diet'
+  weight:
+    new: 'New Weight'
+  user:
+    new:    'Sign up User'
+    edit:   'Edit Profile'
+    login:  'Login User'
+    logout: 'Logout'
+
