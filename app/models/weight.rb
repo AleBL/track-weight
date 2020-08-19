@@ -7,7 +7,7 @@ class Weight < ApplicationRecord
   validates :user,  presence: true
   validates :value, presence: true
 
-  validates_date :registration_date, on_or_before: :today, allow_nil: true
+  validates_date :registration_date, on_or_before: :today, allow_blank: true
 
   validates_numericality_of :value, greater_than: 0
 end
