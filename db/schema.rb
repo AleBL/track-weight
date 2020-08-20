@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_221548) do
   end
 
   create_table "meals", force: :cascade do |t|
-    t.integer "type", null: false
+    t.integer "kind", null: false
     t.time "eating_time", null: false
     t.text "description", null: false
     t.bigint "diet_id", null: false
