@@ -1,0 +1,22 @@
+<li class="control-group nested-fields">
+  <div class="controls">
+    <div class="field">
+      <%= f.label :eating_time %>
+      <%= f.time_field :eating_time %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </div>
+
+    <div class="field">
+      <%= f.label :kind %>
+      <%= f.select(:kind, Meal.kinds.keys.map {|kind| [kind.titleize, kind]}) %>
+    </div>
+
+    <button class="btn btn-danger">
+      <%= link_to_remove_association 'Remove', f %>
+    </button>
+  </div>
+</li>

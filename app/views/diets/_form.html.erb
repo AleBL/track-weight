@@ -1,0 +1,71 @@
+<%= form_with(model: diet, local: true) do |form| %>
+  <% if diet.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2>
+        <%= pluralize(diet.errors.count, "error") %>
+        <%= t('error.saved', { class: t('diet.name') }) %>
+      </h2>
+
+      <ul>
+        <% diet.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="div-form">
+    <h3><%= t('diet.name') %></h3>
+    <div class="field">
+      <%= form.label :initial_date %>
+      <%= form.date_field :initial_date %>
+    </div>
+
+    <div class="field">
+      <%= form.label :end_date %>
+      <%= form.date_field :end_date %>
+    </div>
+
+    <fieldset id="weight-diet">
+      <ol>
+        <h3><%= t('weight.initial') %></h3>
+        <%= form.fields_for :initial_weight do |weight| %>
+          <%= render 'weight_fields', f: weight %>
+        <% end %>
+      </ol>
+    </fieldset>
+    <hr/>
+
+    <fieldset id="weight-diet">
+      <ol>
+        <h3><%= t('weight.ideal') %></h3>
+        <%= form.fields_for :ideal_weight do |weight| %>
+          <%= render 'weight_fields', f: weight %>
+        <% end %>
+      </ol>
+    </fieldset>
+    <hr/>
+
+    <fieldset id="meals-diet">
+      <ol>
+        <h3><%= t('meal.name') %></h3>
+        <%= form.fields_for :meals do |meal| %>
+          <%= render 'meal_fields', f: meal %>
+        <% end %>
+      </ol>
+    </fieldset>
+    <hr/>
+
+    <button class="btn btn-primary">
+      <%= link_to_add_association t('add_meal'), form, :meals,
+        'data-association-insertion-node' => "#meals-diet ol",
+        'data-association-insertion-method' => "append",
+        :wrap_object => Proc.new { |m| m.build_diet; m } %>
+    </button>
+    <hr/>
+    
+    <div class="actions">
+      <%= form.submit class: 'btn btn-success' %>
+    </div>
+  </div>
+<% end %>
