@@ -1,4 +1,7 @@
 class DietsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :verify_authorization?, only: [:show, :edit, :update, :destroy]
+
   def new
     @diet = Diet.new
     @diet.meals.build
@@ -21,6 +24,12 @@ class DietsController < ApplicationController
   end
 
   private
+
+  def verify_authorization?
+    unless ::DietPolicy.new(current_user, @diet).authorized?
+      render :file => "public/404.html", :status => :unauthorized
+    end
+  end
 
   def diet_params
     params.require(:diet)

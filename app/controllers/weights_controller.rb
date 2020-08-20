@@ -1,4 +1,6 @@
 class WeightsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @weight = Weight.new
   end
