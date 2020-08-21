@@ -1,0 +1,29 @@
+<div id="chart" style="width: auto; height: 600px;"></div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<%= javascript_tag do -%>
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    var data = JSON.parse('<%= @weights.to_json.html_safe %>');
+    data = [['Year/Month', 'Weight', {type: 'string', role: 'annotation'}]].concat(data);
+
+    data = google.visualization.arrayToDataTable(data);
+
+    options = {
+      title: 'Weights by Date',
+      hAxis: {
+        title: 'Date'
+      },
+      vAxis: {
+        title: 'Weights'
+      },
+      curveType: 'function',
+      legend: { position: 'bottom' }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('chart'));
+    chart.draw(data, options);
+  }
+<% end -%>
