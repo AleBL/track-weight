@@ -34,6 +34,7 @@ en:
   logged: 'Logged in as %{name}'
   add_meal: 'Add Meal'
   add_weight: 'Add Weight'
+  no_weights: "You have no weight registered!"
   diet:
     name: 'Diet'
     new:  'New Diet'
