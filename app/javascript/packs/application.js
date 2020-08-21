@@ -10,3 +10,4 @@ require("channels")
 
 import '../stylesheets/application'
 import './bootstrap_custom.js'
+import 'cocoon-js'

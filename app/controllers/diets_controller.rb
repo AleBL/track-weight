@@ -9,7 +9,7 @@ class DietsController < ApplicationController
 
   def new
     @diet = Diet.new
-    @diet.meals.build
+    @diet.meals.new
 
     @diet.initial_weight = Weight.new
     @diet.ideal_weight = Weight.new
@@ -17,9 +17,12 @@ class DietsController < ApplicationController
 
   def create
     @diet = current_user.diets.new(diet_params)
-
     @diet.initial_weight.write_attribute(:user_id, current_user.id) unless @diet.initial_weight.nil?
     @diet.ideal_weight  .write_attribute(:user_id, current_user.id) unless @diet.initial_weight.nil?
+
+    diet_params[:meals_attributes].values.each do |meal_params|
+      @diet.meals.new(meal_params)
+    end
 
     if @diet.save
       flash[:notice] = "Diet was successfully created."
@@ -72,7 +75,7 @@ class DietsController < ApplicationController
       :user_id,
       initial_weight_attributes: %i[value unity _destroy],
       ideal_weight_attributes: %i[value unity _destroy],
-      meals_attributes: %i[eating_time description kind _destroy]
+      meals_attributes: %i[eating_time description kind]
     )
   end
 end
