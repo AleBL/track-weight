@@ -30,4 +30,25 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  app_name: 'Track Weight'
+  logged: 'Logged in as %{name}'
+  add_meal: 'Add Meal'
+  add_weight: 'Add Weight'
+  diet:
+    name: 'Diet'
+    new:  'New Diet'
+  meal:
+    name: 'Meal'
+    new: 'New Meal'
+  weight:
+    name: 'Weight'
+    initial: 'Initial Weight'
+    ideal: 'Ideal Weight'
+    new: 'New Weight'
+  user:
+    new:    'Sign up User'
+    edit:   'Edit Profile'
+    login:  'Login User'
+    logout: 'Logout'
+  error:
+    saved: 'prohibited this %{class} from being saved:'

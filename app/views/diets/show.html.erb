@@ -1,0 +1,34 @@
+<div class="div-form">
+  <p>
+    <strong><%= t('diet.initial_date') %></strong>
+    <%= @diet.initial_date %>
+  </p>
+
+  <p>
+    <strong><%= t('diet.end_date') %></strong>
+    <%= @diet.end_date %>
+  </p>
+
+  <p>
+    <strong><%= t('diet.initial_weight') %></strong>
+    <%= @diet.initial_weight.label %>
+  </p>
+
+  <p>
+    <strong><%= t('diet.ideal_weight') %></strong>
+    <%= @diet.ideal_weight.label %>
+  </p>
+
+  <p>
+    <strong><%= t('meal.name') %></strong>
+    <% @diet.meals.each do |meal| %>
+      <%= meal.kind + "," %>
+      <%= meal.description + "," %>
+      <%= meal.eating_time.strftime("%H:%M") %> |
+    <% end %>
+  </p>
+
+  <button class="btn btn-primary">
+    <%= link_to t('edit'), edit_diet_path(@diet) %>
+  </button>
+</div>

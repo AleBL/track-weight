@@ -3,7 +3,7 @@ class Meal < ApplicationRecord
 
   validates :description, presence: true
   validates :eating_time, presence: true
-  validates :type,        presence: true
+  validates :kind,        presence: true
 
-  enum type: [:breakfast, :lunch, :dinner, :supper]
+  enum kind: [:breakfast, :lunch, :dinner, :supper]
 end
