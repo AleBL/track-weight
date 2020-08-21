@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <p class="navbar-text float-right">
+    <div class="navbar">
       <a href=<%= root_path %>><h1><%= t('app_name') %></h1></a>
 
       <% if user_signed_in? %>
@@ -26,7 +26,7 @@
         <%= link_to t('user.new'),    new_user_registration_path,  :class => 'navbar-link'  %> |
         <%= link_to t('user.login'),  new_user_session_path,       :class => 'navbar-link'  %>
       <% end %>
-    </p>
+    </div>
 
     <%= yield %>
   </body>
