@@ -20,7 +20,7 @@ class DietsController < ApplicationController
     @diet.initial_weight.write_attribute(:user_id, current_user.id) unless @diet.initial_weight.nil?
     @diet.ideal_weight  .write_attribute(:user_id, current_user.id) unless @diet.initial_weight.nil?
 
-    diet_params[:meals_attributes].values.each do |meal_params|
+    diet_params[:meals_attributes].try(:values).try(:each) do |meal_params|
       @diet.meals.new(meal_params)
     end
 
