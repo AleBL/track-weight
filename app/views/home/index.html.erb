@@ -1,1 +1,5 @@
-<%= render 'chart' %>
+<% if @weights.empty? %>
+  <h3><%= t('no_weights') %></h3>
+<% else %>
+  <%= render 'chart' %>
+<% end %>
