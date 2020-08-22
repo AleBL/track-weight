@@ -7,17 +7,17 @@
 
   function drawChart() {
     var data = JSON.parse('<%= @weights.to_json.html_safe %>');
-    data = [['Year/Month', 'Weight', {type: 'string', role: 'annotation'}]].concat(data);
+    data = [['<%= t('chart.axis.h') %>','<%= t('weight.name') %>', {type: 'string', role: 'annotation'}]].concat(data);
 
     data = google.visualization.arrayToDataTable(data);
 
     options = {
-      title: 'Weights by Date',
+      title: '<%= t('chart.title') %>',
       hAxis: {
-        title: 'Date'
+        title: '<%= t('chart.axis.h') %>'
       },
       vAxis: {
-        title: 'Weights'
+        title: '<%= t('chart.axis.v') %>'
       },
       curveType: 'function',
       legend: { position: 'bottom' }

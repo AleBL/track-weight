@@ -10,24 +10,24 @@
     </div>
   <% end %>
 
-  <div class="div-form">
+  <div class="form">
     <div class="field">
-      <%= form.label :value %>
+      <%= form.label t('weight.value') %>
       <%= form.number_field :value, step: 0.1 %>
     </div>
 
     <div class="field">
-      <%= form.label :unity %>
+      <%= form.label t('weight.unity') %>
       <%= form.select(:unity, Weight.unities.keys.map {|unity| [unity.titleize, unity]}) %>
     </div>
 
     <div class="field">
-      <%= form.label :registration_date %>
+      <%= form.label t('weight.registration_date') %>
       <%= form.date_field :registration_date %>
     </div>
 
     <div class="actions">
-      <%= form.submit class: 'btn btn-success' %>
+      <%= form.submit t('weight.create'), class: 'btn btn-success' %>
     </div>
   </div>
 <% end %>
