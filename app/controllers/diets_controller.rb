@@ -17,8 +17,7 @@ class DietsController < ApplicationController
 
   def create
     @diet = current_user.diets.new(diet_params)
-    @diet.initial_weight.write_attribute(:user_id, current_user.id) unless @diet.initial_weight.nil?
-    @diet.ideal_weight  .write_attribute(:user_id, current_user.id) unless @diet.initial_weight.nil?
+    set_weight
 
     diet_params[:meals_attributes].try(:values).try(:each) do |meal_params|
       @diet.meals.new(meal_params)
@@ -67,15 +66,20 @@ class DietsController < ApplicationController
     @diet = Diet.find(params[:id])
   end
 
+  def set_weight
+    @diet.initial_weight.write_attribute(:user_id, current_user.id) unless @diet.initial_weight.nil?
+    @diet.ideal_weight  .write_attribute(:user_id, current_user.id) unless @diet.initial_weight.nil?
+  end
+
   def diet_params
     params.require(:diet)
     .permit(
       :initial_date,
       :end_date,
       :user_id,
-      initial_weight_attributes: %i[value unity _destroy],
-      ideal_weight_attributes: %i[value unity _destroy],
-      meals_attributes: %i[eating_time description kind]
+      initial_weight_attributes: %i[value unity id _destroy],
+      ideal_weight_attributes: %i[value unity id _destroy],
+      meals_attributes: %i[eating_time description kind id]
     )
   end
 end
