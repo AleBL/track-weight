@@ -14,15 +14,15 @@
     </div>
   <% end %>
 
-  <div class="div-form">
+  <div class="form">
     <h3><%= t('diet.name') %></h3>
     <div class="field">
-      <%= form.label :initial_date %>
+      <%= form.label t('diet.initial_date') %>
       <%= form.date_field :initial_date %>
     </div>
 
     <div class="field">
-      <%= form.label :end_date %>
+      <%= form.label t('diet.end_date') %>
       <%= form.date_field :end_date %>
     </div>
 
@@ -48,7 +48,7 @@
 
     <fieldset id="meals-diet">
       <ol>
-        <h3><%= t('meal.name') %></h3>
+        <h3><%= t('meals') %></h3>
         <%= form.fields_for :meals do |meal| %>
           <%= render 'meal_fields', f: meal %>
         <% end %>
@@ -56,16 +56,18 @@
     </fieldset>
     <hr/>
 
-    <button class="btn btn-primary">
-      <%= link_to_add_association t('add_meal'), form, :meals,
-        'data-association-insertion-node' => "#meals-diet ol",
-        'data-association-insertion-method' => "append",
-        :wrap_object => Proc.new { |m| m.build_diet; m } %>
-    </button>
+    <div class="actions">
+      <button class="btn btn-primary">
+        <%= link_to_add_association t('add_meal'), form, :meals,
+          'data-association-insertion-node' => "#meals-diet ol",
+          'data-association-insertion-method' => "append",
+          :wrap_object => Proc.new { |m| m.build_diet; m } %>
+      </button>
+    </div>
     <hr/>
 
     <div class="actions">
-      <%= form.submit class: 'btn btn-success' %>
+      <%= form.submit t('diet.create'), class: 'btn btn-success' %>
     </div>
   </div>
 <% end %>

@@ -1,12 +1,12 @@
 <li class="control-group nested-fields">
   <div class="controls">
     <div class="field">
-      <%= f.label :value %>
+      <%= f.label t('weight.value') %>
       <%= f.number_field :value, step: 0.1 %>
     </div>
 
     <div class="field">
-      <%= f.label :unity %>
+      <%= f.label t('weight.unity') %>
       <%= f.select(:unity, Weight.unities.keys.map {|unity| [unity.titleize, unity]}) %>
     </div>
   </div>

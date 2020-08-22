@@ -36,3 +36,94 @@
 @import '~bootstrap/scss/_tooltip.scss';
 @import '~bootstrap/scss/_transitions.scss';
 @import '~bootstrap/scss/_utilities.scss';
+
+* {
+  text-decoration: none;
+}
+
+a, a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar {
+  background-color: rgb(168, 203, 182);
+  width: -webkit-fill-available;
+  top: 0px;
+  display: flex;
+}
+
+.navbar > a {
+  color: rgb(45, 70, 118);
+}
+
+.table th, .table td {
+  background-color: rgb(111, 167, 142);
+}
+
+.form {
+  border-radius: 5px;
+  background-color: rgb(143, 180, 208);
+  padding: 20px;
+  margin: 50px 400px;
+}
+
+.form > .field > input {
+  width: -webkit-fill-available;
+}
+
+.form > .actions > input {
+  width: 50%;
+}
+
+.field {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.field > input[type=text], select {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.field > input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+
+@media (min-width: 1200px) {
+  .form, .div-login-sign {
+    margin: 0px 450px;
+  }
+}
+
+@media (min-width: 869px) and (max-width: 1199px) {
+  .form, .div-login-sign {
+    margin: 0px 250px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 868px) {
+  .form, .div-login-sign {
+    margin: 0px 200px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .form, .div-login-sign {
+    margin: 0px 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form, .div-login-sign {
+    margin: 0px 20px;
+  }
+}

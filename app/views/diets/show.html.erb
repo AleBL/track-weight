@@ -1,4 +1,4 @@
-<div class="div-form">
+<div class="form">
   <p>
     <strong><%= t('diet.initial_date') %></strong>
     <%= @diet.initial_date %>
@@ -10,12 +10,12 @@
   </p>
 
   <p>
-    <strong><%= t('diet.initial_weight') %></strong>
+    <strong><%= t('weight.initial') %></strong>
     <%= @diet.initial_weight.label %>
   </p>
 
   <p>
-    <strong><%= t('diet.ideal_weight') %></strong>
+    <strong><%= t('weight.ideal') %></strong>
     <%= @diet.ideal_weight.label %>
   </p>
 
@@ -29,6 +29,6 @@
   </p>
 
   <button class="btn btn-primary">
-    <%= link_to t('edit'), edit_diet_path(@diet) %>
+    <%= link_to t('action.edit'), edit_diet_path(@diet) %>
   </button>
 </div>

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  scope "(:locale)", locale: /en|pt/ do
+    devise_for :users
 
-  resources :diets
-  resources :weights
+    resources :diets
+    resources :weights
 
-  root to: 'home#index'
+    root to: 'home#index'
+  end
 end

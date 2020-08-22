@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <p class="navbar-text float-right">
+    <div class="navbar">
       <a href=<%= root_path %>><h1><%= t('app_name') %></h1></a>
 
       <% if user_signed_in? %>
@@ -19,14 +19,20 @@
 
         <%= link_to t('weight.new'),  new_weight_path,             :class => 'navbar-link' %> |
         <%= link_to t('diet.new'),    new_diet_path,               :class => 'navbar-link' %> |
+        <%= link_to t('diets'),       diets_path,                  :class => 'navbar-link' %> |
 
         <%= link_to t('user.edit'),   edit_user_registration_path, :class => 'navbar-link' %> |
-        <%= link_to t('user.logout'), destroy_user_session_path,   :class => 'navbar-link', method: :delete %>
+        <%= link_to t('logout'), destroy_user_session_path,        :class => 'navbar-link', method: :delete %>
       <% else %>
         <%= link_to t('user.new'),    new_user_registration_path,  :class => 'navbar-link'  %> |
-        <%= link_to t('user.login'),  new_user_session_path,       :class => 'navbar-link'  %>
+        <%= link_to t('login'),  new_user_session_path,            :class => 'navbar-link'  %>
       <% end %>
-    </p>
+
+      <ul>
+        <li><%= link_to 'English', root_path(locale: :en) %></li>
+        <li><%= link_to 'Português', root_path(locale: :pt) %></li>
+      </ul>
+    </div>
 
     <%= yield %>
   </body>
