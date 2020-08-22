@@ -1,26 +1,71 @@
 [![Build Status](https://circleci.com/gh/AleBL/track-weight.svg?style=svg)](https://app.circleci.com/pipelines/github/AleBL/track-weight)
 
-# README
+# Track Monitor
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby on rails health control application, where the user registers diets and meals.
 
-Things you may want to cover:
+It is also possible to update your weight where changes will be shown in a graph.
 
-* Ruby version
+### Heroku Deploy
+[Track Weight App](https://track-weight.herokuapp.com/)
 
-* System dependencies
+### Ruby version
+```
+2.7.1
+```
 
-* Configuration
+### Rails version
+```
+6.0.3
+```
 
-* Database creation
+### Configuration
+```shell
+bundle install
+yarn install
+```
 
-* Database initialization
+### Database creation
+```shell
+bundle exec rails db:setup
+or
+bundle exec rails db:create
+bundle exec rails db:migrate
+```
 
-* How to run the test suite
+#### For The Tests
 
-* Services (job queues, cache servers, search engines, etc.)
+```shell
+bundle exec rails db:setup RAILS_ENV=test
+or
+bundle exec rails db:create
+bundle exec rails db:migrate RAILS_ENV=test
+bundle exec rails db:seed RAILS_ENV=test
+```
 
-* Deployment instructions
+### How to run the test suite
+```shell
+bundle exec rspec
+```
 
-* ...
+### Run the server
+```shell
+bundle exec rails server
+```
+
+# Documentation
+## Features
+- chart of weights registered by the user
+- creation of diets, meals and a weight to be conquered
+- there are 4 kinds of meals: breakfast, lunch, dinner, supper
+- there are 2 unities of weights: kilo (kg) and pound (lb)
+- the user will only be able to see weights and diets created by him
+- only logged in users will be able to view and create weights
+
+## Pages
+- Home: `http://localhost:3000`
+- Create User: `http://localhost:3000/users/sign_up`
+- Login: `http://localhost:3000/users/sign_in`
+- Update Weight: `http://localhost:3000/weights/new`
+- Create Diet: `http://localhost:3000/diets/new`
+- Show All Diets; `http://localhost:3000/diets/`
