@@ -15,7 +15,7 @@ RSpec.describe Diet, type: :model do
   it { is_expected.to     allow_value(Date.today)    .for(:initial_date) }
   it { is_expected.to_not allow_value(Date.tomorrow) .for(:initial_date) }
 
-  it { is_expected.to_not allow_value(Date.yesterday).for(:end_date) }
-  it { is_expected.to     allow_value(Date.today)    .for(:end_date) }
-  it { is_expected.to     allow_value(Date.tomorrow) .for(:end_date) }
+  it { is_expected.to_not allow_value(1.month.ago.to_date).for(:end_date) }
+  it { is_expected.to     allow_value(Date.today)         .for(:end_date) }
+  it { is_expected.to     allow_value(Date.tomorrow)      .for(:end_date) }
 end

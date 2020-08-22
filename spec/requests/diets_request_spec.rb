@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "/diets", type: :request do
+  after(:each) do
+    I18n.locale = :en
+  end
+
   describe "user is not signed in" do
     describe "index" do
       it "redirects to the index" do
@@ -22,7 +26,8 @@ RSpec.describe "/diets", type: :request do
     describe "index" do
       it "return code 401" do
         diet = Diet.create!(valid_params)
-        get edit_diet_url(diet)
+
+        get edit_diet_url(id: diet.id)
         expect(response).to have_http_status(401)
       end
     end
@@ -64,7 +69,7 @@ RSpec.describe "/diets", type: :request do
     describe "show" do
       it "renders a successful response" do
         diet = Diet.create! valid_params
-        get diet_url(diet)
+        get diet_url(id: diet.id)
         expect(response).to be_successful
       end
     end
@@ -79,7 +84,7 @@ RSpec.describe "/diets", type: :request do
     describe "edit" do
       it "render a successful response" do
         diet = Diet.create! valid_params
-        get edit_diet_url(diet)
+        get edit_diet_url(id: diet.id)
         expect(response).to be_successful
       end
     end
@@ -125,25 +130,10 @@ RSpec.describe "/diets", type: :request do
 
         it "updates the requested diet" do
           diet = Diet.create! valid_params
-          patch diet_url(diet), params: { diet: new_attributes }
+          patch diet_url(id: diet.id), params: { diet: new_attributes }
           diet.reload
           expect(response).to be_successful
         end
-      end
-    end
-
-    describe "destroy" do
-      it "destroys the requested diet" do
-        diet = Diet.create! valid_params
-        expect {
-          delete diet_url(diet)
-        }.to change(Diet, :count).by(-1)
-      end
-
-      it "redirects to the diets list" do
-        diet = Diet.create! valid_params
-        delete diet_url(diet)
-        expect(response).to redirect_to(root_path)
       end
     end
   end
