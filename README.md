@@ -1,6 +1,6 @@
 [![Build Status](https://circleci.com/gh/AleBL/track-weight.svg?style=svg)](https://app.circleci.com/pipelines/github/AleBL/track-weight)
 
-# Track Monitor
+# Track Weight
 
 Ruby on rails health control application, where the user registers diets and meals.
 
@@ -69,3 +69,7 @@ bundle exec rails server
 - Update Weight: `http://localhost:3000/weights/new`
 - Create Diet: `http://localhost:3000/diets/new`
 - Show All Diets; `http://localhost:3000/diets/`
+
+### Author
+
+[Alessandro Barros Leal](https://www.linkedin.com/in/alessandro-barros-4075a112b/)
