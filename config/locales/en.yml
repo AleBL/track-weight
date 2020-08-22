@@ -35,21 +35,60 @@ en:
   add_meal: 'Add Meal'
   add_weight: 'Add Weight'
   no_weights: "You have no weight registered!"
+  chart:
+    title: 'Weights by Date'
+    axis:
+      h: 'Date'
+      v: 'Weights'
+  diets: "Diets"
   diet:
     name: 'Diet'
     new:  'New Diet'
+    create: 'Create Diet'
+    initial_date: "Initial Date"
+    end_date: "End Date"
+  meals: 'Meals'
   meal:
     name: 'Meal'
     new: 'New Meal'
+    eating_time: "Eating Time"
+    description: "Description"
+    kind: "Kind"
   weight:
     name: 'Weight'
     initial: 'Initial Weight'
     ideal: 'Ideal Weight'
-    new: 'New Weight'
+    new: 'Update Weight'
+    create: 'Create Weight'
+    registration_date: "Registration Date"
+    value: "Value"
+    unity: "Unity"
   user:
     new:    'Sign up User'
     edit:   'Edit Profile'
-    login:  'Login User'
-    logout: 'Logout'
+    height: "Height"
+    name: "Name"
+    email: "Email"
+    password: "Password"
+    password_confirmation: "Password Confirmation"
+    current_password: "Current Password"
+    edit: "Edit User"
+  sign_up : "Sign up"
+  login: "Login"
+  logout: 'Logout'
+  characters_minimum: "characters minimum"
+  remember_me: "Remember Me"
+  current_password_need: "we need your current password to confirm your changes."
+  cancel_account: "Cancel my account"
+  unhappy: "Unhappy"
+  sure: "Are you sure?"
+  leave_blank_if: "leave blank if you don't want to change it"
+  action:
+    name: "Action"
+    show: "Show"
+    edit: "Edit"
+    delete: "Delete"
+    remove: "Remove"
+    add: "Add"
   error:
-    saved: 'prohibited this %{class} from being saved:'
+    saved: 'prohibited this %{class} from being saved.'
